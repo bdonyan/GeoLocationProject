@@ -7,12 +7,13 @@ const app = express()
 
 app.use(upload())
 
+fs.truncate('locations.json', 0, function(){console.log('done')})
+fs.truncate('addresslist.json', 0, function(){console.log('done')})
+
 app.get('/',(req,res) => {
     res.sendFile(__dirname + '/gmap.html') 
     console.log("HTML file opened")
 })
-
-//console.log(obj[0].Longitude)
 
 app.post('/',(req,res) => {
     if(req.files) {
@@ -26,17 +27,12 @@ app.post('/',(req,res) => {
             console.log('file was copied to destination')
         });
 
-        // file.mv('./uploads/'+filename,function(err) {
-        //     if (err) {
-        //         res.send(err)
-        //     } else {
-        //         res.send("File uploaded")
-        //     }
-        // })
         const execSync = require('child_process').execSync;
         // import { execSync } from 'child_process';  // replace ^ if using ES modules
         const output = execSync('go run "ip2location.go"', { encoding: 'utf-8' });  // the default is 'buffer'
         console.log('Output was:\n', output);
+
+        res.redirect("/");
     }
 })
 
