@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        #custom-button {
+            padding: 10px;
+            color: white;
+            background-color: #009578;
+            border: 1px solid #000;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #custom-button:hover {
+            background-color: #00b28f
+        }
+        #custom-text {
+            margin-left: 10px;
+            font-family: sans-serif;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <form method = "POST" action="/" enctype = "multipart/form-data">
+        <input type="file" name="file"/>
+        <input type="submit" value="Upload"/>
+    </form>
+
+    <div id="map"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    var jsonObject;
+
+    $.ajax({
+        url: '/test',
+        async: false,
+        complete: function(data) {
+            console.log(data);
+            console.log(data.responseJSON)
+            jsonObject = data.responseJSON
+
+            console.log(jsonObject)
+        }
+    });
+
+
+    function initMap() {
+
+        var location = {lat:42.3601, lng: 71.0589};
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: location
+        }); 
+
+        var red = {
+            url: "https://upload.wikimedia.org/wikipedia/commons/9/92/Location_dot_red.svg", // url
+            scaledSize: new google.maps.Size(5, 5), // scaled size
+            origin: new google.maps.Point(0,0), // origin
+            anchor: new google.maps.Point(0, 0) // anchor
+        };
+
+        var orange = {
+            url: "https://upload.wikimedia.org/wikipedia/commons/9/91/Location_dot_orange.svg", // url
+            scaledSize: new google.maps.Size(5, 5), // scaled size
+            origin: new google.maps.Point(0,0), // origin
+            anchor: new google.maps.Point(0, 0) // anchor
+        };
+
+        var green = {
+            url: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Location_dot_green.svg", // url
+            scaledSize: new google.maps.Size(5, 5), // scaled size
+            origin: new google.maps.Point(0,0), // origin
+            anchor: new google.maps.Point(0, 0) // anchor
+        };
+
+        var blue = {
+            url: "https://upload.wikimedia.org/wikipedia/commons/3/35/Location_dot_blue.svg", // url
+            scaledSize: new google.maps.Size(5, 5), // scaled size
+            origin: new google.maps.Point(0,0), // origin
+            anchor: new google.maps.Point(0, 0) // anchor
+        };
+
+        var purple = {
+            url: "https://upload.wikimedia.org/wikipedia/commons/2/20/Location_dot_purple.svg", // url
+            scaledSize: new google.maps.Size(5, 5), // scaled size
+            origin: new google.maps.Point(0,0), // origin
+            anchor: new google.maps.Point(0, 0) // anchor
+        };
+
+        for (let i=0; i<jsonObject.length; i++) {
+            var location = {lat: jsonObject[i].Latitude, lng: jsonObject[i].Longitude};
+            var count = 0;
+            for (let j=0; j<jsonObject.length; j++) {
+                if (Math.abs(jsonObject[j].Latitude-jsonObject[i].Latitude) < 2 &&
+                 Math.abs(jsonObject[j].Longitude-jsonObject[i].Longitude) < 2) {
+                    count++;
+                }
+            }
+            console.log(count)
+            if (count <= 1) {
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    icon: purple
+                });
+            } else if (count >= 2 && count <=5) {
+                    var marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    icon: blue
+                });
+            } else if (count > 5 && count <= 8) {
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    icon: green
+                });
+            } else if (count > 8 && count < 15) {
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    icon: orange
+                }); 
+            } else {
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    icon: red
+                });
+            }
+        }   
+    }
+    
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/
+js?key=AIzaSyACPEgOPBUYZRFVOlzFQvuTrs19Rs33WTY&callback=initMap"></script>
+
+</body> 
+</html>
