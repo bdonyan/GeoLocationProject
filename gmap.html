@@ -28,10 +28,55 @@
             font-family: sans-serif;
             color: #aaa;
         }
+
+        ul {
+            font-size: 14px;
+            margin-left: 10px;
+            list-style-type: circle;
+        }
+
+        .purple {
+            color:purple;
+            font-family: 'Bebas Neue', cursive;
+        }
+        .blue {
+            color:blue;
+            font-family: 'Bebas Neue', cursive;
+        }
+        .green {
+            color: green;
+            font-family: 'Bebas Neue', cursive;
+        }
+        .orange {
+            color: orange;
+            font-family: 'Bebas Neue', cursive;
+        }
+        .red {
+            color: red;
+            font-family: 'Bebas Neue', cursive;
+        }
+
+        .key {
+            font-size: 1.5rem;
+            padding-top: 15px;
+            font-family: 'Bebas Neue', cursive;
+        }
+
+        .title {
+           padding-top: 10px; 
+           font-family: 'Palette Mosaic', cursive;
+        }
+        
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=MonteCarlo&family=Palette+Mosaic&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    <center><h1 class="title">IP Addresses to Map Points Converter</h1></center>
     <form method = "POST" action="/" enctype = "multipart/form-data">
         <input type="file" name="file"/>
         <input type="submit" value="Upload"/>
@@ -146,6 +191,17 @@
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/
 js?key=AIzaSyACPEgOPBUYZRFVOlzFQvuTrs19Rs33WTY&callback=initMap"></script>
+
+<center><h1 class = "key">Key Based on Density In a 2 Unit Long/Lat Radius</h1></center>
+<center>
+    <ul>
+        <p><li class="purple">◉ 1 point</li></p>
+        <p><l1 class="blue">◉ 2-5 points</l1></p>
+        <p><l1 class="green">◉ 6-8 points</l1></p>
+        <p><l1 class="orange">◉ 9-14 points</l1></p>
+        <p><l1 class="red">◉ 15 points or more</l1></p>
+    </ul>
+</center>
 
 </body> 
 </html>
