@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, inital-scale=1">
+        <style>
+            /* Add a black background color to the top navigation */
+            .topnav {
+                background-color: #333;
+                overflow: hidden;
+            }
+
+            /* Style the links inside the navigation bar */
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+            /* Change the color of links on hover */
+            .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+
+            /* Add a color to the active/current link */
+            .topnav a.active {
+                background-color: #04AA6D;
+                color: white;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .description {
+                padding-left: 80px;
+                width: 700px;
+                height: 150px;
+                font-size: 20px;
+                line-height: 3.5em;   
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            .title {
+                font-family: 'Bebas Neue', cursive;
+                font-size: 60px;
+            }
+            .button {
+                position:absolute;
+                left:1100px;
+                top:400px;
+            }
+            .nav1 {
+                font-family: 'Montserrat', sans-serif;
+            }
+            .warning {
+                color: red
+            }
+        </style>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="button">
+            <form method="get" action="/send">
+                <button type="submit">Download!</button>
+            </form>
+        </div>
+        <div class="topnav">
+            <a href="/" class="nav1">Home</a>
+            <a class="active" href="generateinput.html" class="nav1">Generate Input!</a>
+            <a href="gmap.html" class="nav1">Try It Yourself!</a>
+        </div>
+        <center><h1 class = "title">Generate Your JSON Input File!</h1></center>
+        <div class = "description">
+            <p>Download your own JSON file on the right to try out my project! A JSON file with 1000 randomly generated IP 
+                Addresses will be downloaded to your computer. Upload this to my program to see the locations of the 
+                addresses on a map! <h4 class="warning">
+                    Make sure the downloaded file doesn't have a parentheses in the file name e.g. "addresses (4).json"
+                    or else the code won't work! </h4>
+                </thead> 
+            </p>
+        </div>
+    </body>
+</html>
