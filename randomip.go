@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"math/rand"
 	"strconv"
+	"time"
 )
 
 type IPAddresses struct {
@@ -14,6 +15,7 @@ type IPAddresses struct {
 func main() {
 	var arr []IPAddresses
 	var numbers [4]int
+	rand.Seed(time.Now().UnixNano())
 
 	for i := 1; i <= 1000; i++ {
 		var status bool = false
