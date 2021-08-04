@@ -38,22 +38,27 @@
         .purple {
             color:purple;
             font-family: 'Bebas Neue', cursive;
+            padding-right: 2%;
         }
         .blue {
             color:blue;
             font-family: 'Bebas Neue', cursive;
+            padding-right: 2%;
         }
         .green {
             color: green;
             font-family: 'Bebas Neue', cursive;
+            padding-right: 2%;
         }
         .orange {
             color: orange;
             font-family: 'Bebas Neue', cursive;
+            padding-right: 2%;
         }
         .red {
             color: red;
             font-family: 'Bebas Neue', cursive;
+            padding-right: 2%;
         }
 
         .key {
@@ -66,6 +71,46 @@
            padding-top: 10px; 
            font-family: 'Palette Mosaic', cursive;
         }
+
+        #menu ul {
+            list-style: none;
+        }
+
+        #menu li {
+            display: inline;
+        }
+        /* Add a black background color to the top navigation */
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        /* Style the links inside the navigation bar */
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        /* Change the color of links on hover */
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Add a color to the active/current link */
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nav1 {
+            font-family: 'Montserrat', sans-serif;
+        }
         
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,8 +119,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=MonteCarlo&family=Palette+Mosaic&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="topnav">
+        <a href="/" class="nav1">Home</a>
+        <a href="generateinput.html" class="nav1">Generate Input!</a>
+        <a class="active" href="/gmap.html" >Try It Yourself!</a>
+    </div>
+
     <center><h1 class="title">IP Addresses to Map Points Converter</h1></center>
     <form method = "POST" action="/" enctype = "multipart/form-data">
         <input type="file" name="file"/>
@@ -194,13 +248,15 @@ js?key=AIzaSyACPEgOPBUYZRFVOlzFQvuTrs19Rs33WTY&callback=initMap"></script>
 
 <center><h1 class = "key">Key Based on Density In a 2 Unit Long/Lat Radius</h1></center>
 <center>
-    <ul>
-        <p><li class="purple">◉ 1 point</li></p>
-        <p><l1 class="blue">◉ 2-5 points</l1></p>
-        <p><l1 class="green">◉ 6-8 points</l1></p>
-        <p><l1 class="orange">◉ 9-14 points</l1></p>
-        <p><l1 class="red">◉ 15 points or more</l1></p>
-    </ul>
+    <div id = "menu">
+        <ul>
+            <li class="purple">◉ 1 point</li>
+            <l1 class="blue">◉ 2-5 points</l1>
+            <l1 class="green">◉ 6-8 points</l1>
+            <l1 class="orange">◉ 9-14 points</l1>
+            <l1 class="red">◉ 15 points or more</l1>
+        </ul>
+    </div>
 </center>
 
 </body> 
