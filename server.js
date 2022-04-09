@@ -61,6 +61,6 @@ app.get('/test', function(req, res, next) {
     res.json(obj);
 });
 
-app.listen(5000, function() {
+app.listen(process.env.PORT || 5000, function() {
     console.log("Server started successfully on port 5000.")
 })
