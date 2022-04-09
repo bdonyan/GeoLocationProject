@@ -8,12 +8,12 @@ import (
 	"time"
 )
 
-type IPAddresses struct {
+type IPAddresses2 struct {
 	Address string `json:"IP"`
 }
 
-func main() {
-	var arr []IPAddresses
+func main2() {
+	var arr []IPAddresses2
 	var numbers [4]int
 	rand.Seed(time.Now().UnixNano())
 
@@ -47,7 +47,7 @@ func main() {
 		}
 		address := strconv.Itoa(numbers[0]) + "." + strconv.Itoa(numbers[1]) + "." + strconv.Itoa(numbers[2]) + "." + strconv.Itoa(numbers[3])
 
-		data := IPAddresses{
+		data := IPAddresses2{
 			Address: address,
 		}
 

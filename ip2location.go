@@ -62,6 +62,7 @@ func main() {
 		arr = append(arr,data)
 
 	}
+	
 	file, _ := json.MarshalIndent(arr,"", " ")
 
 		_ = ioutil.WriteFile("locations.json",file, 0644)
